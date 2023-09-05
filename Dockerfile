@@ -1,18 +1,24 @@
-FROM ubuntu:kinetic as node-relay
+FROM ubuntu:23.04 as node-relay
 LABEL maintainer="Kris Henriksen"
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt update && \
-	apt --yes --no-install-recommends install \
+# Update the OS and setup the initial deps
+RUN apt-get update && \ 
+	apt-get upgrade -y && \
+	apt-get -y --no-install-recommends install \
 	iptables \
 	dnsmasq \
 	uml-utilities \
 	net-tools \
 	build-essential \
 	git \
-	nodejs \
-	npm
+	curl
+
+# Install NVM, NodeJS, and NPM
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
+	apt-get update && \
+	apt-get -y install nodejs npm
 
 # ReducingDiskFootprint
 RUN apt-get --yes clean && \
