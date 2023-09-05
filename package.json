@@ -18,7 +18,9 @@
     },
     "homepage": "https://www.bloqifi.com/",
     "dependencies": {
+        "bufferutil": "^4.0.7",
+        "utf-8-validate": "^6.0.3",
         "ws": "^8.11.0",
-        "tuntap2": "git://github.com/bloqcoin/node-tuntap2.git"
+        "tuntap2": "^0.9.1"
     }
 }

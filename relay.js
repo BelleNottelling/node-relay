@@ -22,23 +22,7 @@ console.log(`created tap: ${tap.name}, ip: ${tap.ipv4}, mtu: ${tap.mtu}`);
 tap.setMaxListeners(0);
 
 const wss = new WebSocket.Server({
-	port: 80,
-	perMessageDeflate: {
-		zlibDeflateOptions: {
-			chunkSize: 1024,
-			memLevel: 7,
-			level: 3,
-		},
-		zlibInflateOptions: {
-			chunkSize: 10 * 1024
-		},
-		clientNoContextTakeover: true, // Defaults to negotiated value.
-		serverNoContextTakeover: true, // Defaults to negotiated value.
-		serverMaxWindowBits: 10, // Defaults to negotiated value.
-		// Below options specified as default values.
-		concurrencyLimit: 10, // Limits zlib concurrency for perf.
-		threshold: 1024, // Size (in bytes) below which messages should not be compressed.
-	}
+	port: 80
 });
 
 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);

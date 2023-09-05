@@ -24,7 +24,7 @@ basic NAT functionality and dnsmasq for DHCP support.
 To set up the relay via docker simply run
 
 ```shell
-docker run --privileged -p 8180:80 --name node-relay krishenriksen/node-relay:latest
+docker run --privileged -p 8180:80 --name node-relay bellenottelling/node-relay:latest
 ```
 
 Or use the provided run.sh shell script
@@ -34,7 +34,7 @@ bash run.sh
 ```
 
 and point v86, your VPN client, or your emulator of choice at
-ws://YOUR_HOSTNAME:8180/
+ws://YOUR_HOSTNAME:8080/
 
 Note that the container must be run in priviliged mode so that it can create
 its TAP device and set up IPv4 masquerading.
